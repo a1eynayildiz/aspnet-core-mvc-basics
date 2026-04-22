@@ -1,0 +1,6 @@
+{
+  "emmet.includeLanguages": {
+    "cshtml": "html"
+  },
+  "emmet.triggerExpansionOnTab": true
+}
