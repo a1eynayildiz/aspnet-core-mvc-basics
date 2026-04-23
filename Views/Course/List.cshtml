@@ -1,4 +1,5 @@
-@model Course[]
+@* @model Course[] *@
+@model List<Course> //array yerine list yazıldı.list dinamik büyüyebiliyor, array sabit boyutlu.
 <h1>Course/List</h1>
 
 <div class="row">
@@ -16,6 +17,15 @@
             <img src="~/img/@Model[1].Image" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">@Model[1].Title</h5>
+                <a href="#" class="card-link">İncele</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="~/img/@Model[2].Image" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">@Model[2].Title</h5>
                 <a href="#" class="card-link">İncele</a>
             </div>
         </div>
