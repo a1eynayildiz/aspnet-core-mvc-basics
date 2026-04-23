@@ -1,2 +1,11 @@
-
+@model string[]
 <h1>Products/Index</h1>
+
+<ul>
+    
+    @foreach (string kurs in Model)
+    {
+        <li>@kurs</li>
+    }
+
+</ul>

@@ -34,8 +34,10 @@ public class CourseController : Controller
         List<Course> kurslar = new List<Course>
         {
             new Course { Title = "Javascript Kursu ",Image = "1.jpg"},
-            new Course {Title = "React Kursu ",Image = "2.jpg"},
-            new Course {Title = "Angular Kursu ", Image = "3.jpg"}
+            new Course {Title = "Python Kursu ",Image = "2.jpg"},
+            new Course {Title = "Angular Kursu ", Image = "3.jpg"},
+            new Course {Title = "Node.js Kursu", Image= "4.jpg"}
+
         };
        
         return View(kurslar);
