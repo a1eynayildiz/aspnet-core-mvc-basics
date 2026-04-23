@@ -1,4 +1,4 @@
-@model Product 
+@model Product
 <h1>Products/Details</h1>
 
 <div class="row">
@@ -9,11 +9,30 @@
         <h1>@Model.urunBaslik</h1>
         <p>
             @Model.urunAciklama
-        <p>
-            @Model.urunFiyat
-        </p>
-        <p>
-            @Model.urunSatistami
-        </p>
+            <p>
+                @Model.urunFiyat
+            </p>
+            @* @if (true)
+            {
+                <p>
+                    @Model.urunSatistami
+                </p>
+            } *@
+
+            @if(Model.urunSatistami)
+                {
+                    @if(Model.StokAdeti>0)
+                    {
+                        <p>SATIŞTA</p>
+                    }
+                    else
+                    {
+                        <p>Maalesef,stok yetersiz. Daha sonra tekrar deneyiniz!</p>
+                    }
+                }
+            else
+            {
+                <p>SATIŞTA DEĞİL</p>
+            }
+        </div>
     </div>
-</div>

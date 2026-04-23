@@ -20,6 +20,7 @@ public class CourseController : Controller
         Course kurs1 = new Course();
         kurs1.Title ="Django kursu";
         kurs1.Image = "1.jpg";
+        kurs1.IsActive = true;
         
         return View(kurs1);
        
@@ -33,10 +34,10 @@ public class CourseController : Controller
 
         List<Course> kurslar = new List<Course>
         {
-            new Course { Title = "Javascript Kursu ",Image = "1.jpg"},
-            new Course {Title = "Python Kursu ",Image = "2.jpg"},
-            new Course {Title = "Angular Kursu ", Image = "3.jpg"},
-            new Course {Title = "Node.js Kursu", Image= "4.jpg"}
+            new Course { Title = "Javascript Kursu ",Image = "1.jpg",IsActive = true},
+            new Course {Title = "Python Kursu ",Image = "2.jpg",IsActive = true},
+            new Course {Title = "Angular Kursu ", Image = "3.jpg",IsActive = true},
+            new Course {Title = "Node.js Kursu", Image= "4.jpg",IsActive = true}
 
         };
        
