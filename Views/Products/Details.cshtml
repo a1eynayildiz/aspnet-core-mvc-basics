@@ -1,38 +1,38 @@
 @model Product
-<h1>Products/Details</h1>
 
-<div class="row">
+<div class="row border">
     <div class="col-4">
         <img src="~/img/@Model.urunResim" alt="" class="img-fluid" />
     </div>
-    <div class="col-8">
+    <div class="col-8 border-start p-3">
         <h1>@Model.urunBaslik</h1>
         <p>
             @Model.urunAciklama
-            <p>
-                @Model.urunFiyat
-            </p>
-            @* @if (true)
+        </p>
+        <p>
+            @Model.urunFiyat
+        </p>
+
+        @if (Model.urunSatistami)
+        {
+            @if (Model.StokAdeti > 0)
             {
                 <p>
-                    @Model.urunSatistami
+                    Satışta
                 </p>
-            } *@
-
-            @if(Model.urunSatistami)
-                {
-                    @if(Model.StokAdeti>0)
-                    {
-                        <p>SATIŞTA</p>
-                    }
-                    else
-                    {
-                        <p>Maalesef,stok yetersiz. Daha sonra tekrar deneyiniz!</p>
-                    }
-                }
+            }
             else
             {
-                <p>SATIŞTA DEĞİL</p>
+                <p>Stok yeterli değil.</p>
             }
-        </div>
+        }
+        else
+        {
+            <p>
+                Satışta değil
+            </p>
+        }
+
+
     </div>
+</div>
