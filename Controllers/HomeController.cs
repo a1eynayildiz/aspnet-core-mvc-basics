@@ -1,36 +1,39 @@
-using Microsoft.AspNetCore.Mvc; //kullanırken de using kullanmak 
+using Microsoft.AspNetCore.Mvc;
+using dotnet_basics.Models;
+using dotnet_basics.Models.ViewModels;
 
-namespace dotnet_basics.Controllers; // tanımlarken namespace gerekiyor
 
- //ASP.NET Core'da bir sayfayı veya bir grup işlemi yöneten sınıfların sonuna geleneksel olarak Controller kelimesi eklenir.HomeController, Controller sınıfından miras alıyor.Controller sınıfı içinde hazır gelen (sayfayı ekrana basma, veri gönderme vb.) tüm yetenekler artık HomeController içinde de kullanılabilir hale gelir.Controller (Ana Sınıf) Bu, Microsoft'un hazırladığı hazır bir kütüphanedir.
-public class HomeController : Controller
+namespace dotnet_basics.Controllers
 {
-    //localhost:3000/home buradaki home bizim yazdığımız controller olan HomeControllera karşılık gelir.
-    //localhost:3000/home/Index
-    public ActionResult Index()
+    public class HomeController : Controller
     {
-        int sayi1=10;
-        int sayi2=20;
+        public IActionResult Index()
+        {
+            
+            List<Course> courses = new List<Course>
+            {
+                new Course { Title="Javascript", Image="1.jpg", IsHome=true, IsActive=true },
+                new Course { Title="React", Image="2.jpg", IsHome=true, IsActive=true },
+                new Course { Title="Angular", Image="3.jpg", IsHome=false, IsActive=true },
+                new Course { Title="Node.js", Image="4.jpg", IsHome=true, IsActive=true }
+            };
 
-        //int urun_fiyat = 5000
-        
-        sayi1=30;//sayi1 güncellenmis kabul eder.
+            
+            List<Product> products = new List<Product>
+            {
+                new Product { urunBaslik="Iphone 15", urunResim="i1.png", urunSatistami=true },
+                new Product { urunBaslik="Iphone 16", urunResim="i2.png", urunSatistami=true },
+                new Product { urunBaslik="Iphone 17", urunResim="i3.png", urunSatistami=false }
+            };
 
-        int toplam = sayi1+sayi2;//50
-        ViewData["Toplam"] = toplam;//MVC'de, denetleyiciden görünüme veri aktarmak istediğimizde ViewData'yı kullanırız. Bu, verileri dahili olarak depolayan bir sözlük türüdür.
-        return View();
-    }
-    
-    //localhost:3000/home/about buradaki about ise actiona karşılık geliyor.Ve action methodları büyük harfle başlar
-    public ActionResult About() //About methodu parametre almaz
-    {
-        return View();
-    }
+            
+            var model = new HomePageViewModel
+            {
+                Courses = courses.Where(x => x.IsHome).ToList(),
+                Products = products.Where(x => x.urunSatistami).ToList()
+            };
 
-    //localhost:3000/home/contact
-    public ActionResult Contact()
-    {
-        return View();
+            return View(model);
+        }
     }
 }
-
