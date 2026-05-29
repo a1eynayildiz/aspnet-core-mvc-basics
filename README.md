@@ -68,6 +68,4 @@ Bu proje aşağıdaki konuları pratik etmek için tasarlanmıştır:
 - Razor syntax kullanımı
 - Controller–View veri aktarımı (ViewBag, ViewData, Model)
 
-## 👤 Yazar
 
-**a1eynayildiz** – [GitHub Profili](https://github.com/a1eynayildiz)
